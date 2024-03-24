@@ -1,4 +1,3 @@
-
 """
 This Class represent a player in a game
 """
@@ -17,7 +16,7 @@ class Player:
             return True
     
     def win(self, money):
-        self.money -= self.money
+        self.money += self.money
     
     def get_infomation(self):
         return [self.name, self.money]
