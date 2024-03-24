@@ -2,6 +2,7 @@
 This class would run one game of poker. I had decided to create the game seprately than table so that I could run more than one games at once
 """
 from Player_Class import *
+import random
 
 def create_deck():
     suits = ["H", "D", "S", "C"]
@@ -12,8 +13,18 @@ def create_deck():
             cards.append(i+j)
     return cards
 
-def create_cards(nums):
-    pass
+def create_cards(nums, deck):
+    dealed_cards = []
+    for i in range(nums):
+        dealed_cards.append([])
+        temp = random.choice(deck)
+        dealed_cards[-1].append(temp)
+        deck.remove(temp)
+        temp = random.choice(deck)
+        dealed_cards[-1].append(temp)
+        deck.remove(temp)
+    return (dealed_cards, deck)
 def game(players):
     deck = create_deck()
-    cards = create_cards(len(players))
+    dealed_cards, deck = create_cards(len(players), deck)
+    print(dealed_cards, deck)
